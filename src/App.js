@@ -39,9 +39,8 @@ function App() {
 
         if (subdomain) {
           const apiUrl = `https://apis.rizrv.in/api/company/web/${subdomain}/all/category`;
+          
           const response = await axios.get(apiUrl);
-
-          // console.log(response)
           setData(response.data);
           // console.log(response.data)
           setnavitems(response.data.categories);
@@ -56,11 +55,7 @@ function App() {
 
      fetchData();
     }, []);
-    // console.log("this is navitems",navitems[cate].company_service[val])
-    // console.log("this is category",cate)
-    // console.log("this is value",val)
   
-
 
 
   return (
@@ -69,13 +64,13 @@ function App() {
     <Navbar navitems = {navitems} updatecate={updatecate} updateval={updateval} updateindex={updateindex} />
 
     <Routes >
-    <Route path='/' element={<Home data={navitems} updatecate={updatecate} updateval={updateval} mainindex={mainindex} updateindex={updateindex} />} />
+    <Route path='/' element={<Home data={navitems} category = {cate} updatecate={updatecate} updateval={updateval} mainindex={mainindex} updateindex={updateindex} />} />
     <Route path='/termscond' element={<Termsandcond/>} />
     <Route path='/Aboutus' element={<About/>} />
     <Route path='/privacypolicy' element={<PrivacyPolicy/>} />
     <Route path='/cancellation' element={<Cancellation/>} />
     <Route path='/contact' element={<ContactForm/>} />
-    <Route path='/serv-details' element={<Servicesdetails data={navitems} cate={cate} val={val}/>} />
+    <Route path='/serv-details/:slug' element={<Servicesdetails />} />
     <Route path='/signup' element={<SignForm/>} />
     <Route path='/login' element={<LoginForm/>} />
 

@@ -1,12 +1,42 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Testimonial.css";
-import myimg from "../assets/startup-india-Registration.webp";
+import axios from "axios";
 
 const Testimonial = () => {
   const sliderRef = useRef(null); // Reference to the Slider component
+  const [Data, setData] = useState("")
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = window.location.hostname;
+        const domainArray = url.split(".");
+        const subdomain = domainArray[0];
+        // console.log(subdomain);
+
+        if (subdomain) {
+          const apiUrl = `https://apis.rizrv.in/api/company/front/testimonials/${subdomain}`;
+          
+          const response = await axios.get(apiUrl);
+
+          // console.log("this is response ",response.data.data)
+          setData(response.data.data)
+        } else {
+          console.error("Domain not found in the URL.");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+     fetchData();
+    //  console.log("this is data",Data)
+  }, [])
+  
+
 
   const CustomPrevArrow = () => {
     return (
@@ -40,7 +70,7 @@ const Testimonial = () => {
     nextArrow: <CustomNextArrow />,
   };
 
-  return (
+  return ( Data &&
     <section className="test-section pt-4 ">
       <div className="test-top relative   ">
         <div className="test-top-left"></div>
@@ -61,26 +91,24 @@ const Testimonial = () => {
 
       <div className="testimonial-container">
         <Slider ref={sliderRef} {...settings}>
+          {
+            Data.map((item,index)=>(
+              
           <div className="testimonial-item">
-            <img src={myimg} alt="Testimonial Image 1" />
+            <img src={item.image} alt="Testimonial Image 1" />
             <div>
-              <span className="quote-sign">“</span>
+              {/* <span className="quote-sign">“</span> */}
               <p className="quote">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <div className="text-2xl font-bold">{item.name} </div>
+                <div className="text-xl">{item.designation}</div>
+               <br/>
+               {item.description} 
+
               </p>
             </div>
           </div>
-          <div className="testimonial-item">
-            <img src={myimg} alt="Testimonial Image 2" />
-            <div>
-              <span className="quote-sign">“</span>
-              <p className="quote">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
-          </div>
+            ))
+          }
           {/* Add more testimonial items as needed */}
         </Slider>
       </div>

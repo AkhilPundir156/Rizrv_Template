@@ -1,12 +1,73 @@
-import React from "react";
-import startupimg from "../assets/startup-india-Registration.webp";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Services = ({props}) => {
-  // console.log(props)
-  const {data ,updatecate ,updateval,mainindex} = props
-  // console.log(data[0].company_service)
-  // console.log("these are props",props.data)
+  const {data ,updatecate ,updateval,mainindex ,category} = props
+  const [Data, setData] = useState('')
+
+
+useEffect(()=>{
+  // console.log(category)
+  const fetchcatedata = async()=>{
+    try {
+      const url = window.location.hostname;
+      const domainArray = url.split(".");
+      const subdomain = domainArray[0];
+      
+      if(subdomain){
+        const apiUrl = `https://apis.rizrv.in/api/company/web/${subdomain}/${category}`
+        const response = await axios.get(apiUrl);
+        console.log(response.data.ca_services)
+        setData(response.data.ca_services);
+      }
+
+
+
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
+
+  fetchcatedata()
+
+},[category])
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = window.location.hostname;
+        const domainArray = url.split(".");
+        const subdomain = domainArray[0];
+        // console.log(subdomain);
+
+        if (subdomain) {
+          const apiUrl = `https://apis.rizrv.in/api/company/front/featured/service/${subdomain}`;
+          
+          const response = await axios.get(apiUrl);
+          setData(response.data.featured_service);
+          // console.log(response.data.featured_service)
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+     fetchData();
+
+    // console.log(Data)
+
+
+
+  }, [])
+  
+
+
+
+
+
   return (
     <section className="services-section relative ">
       <div className="serv-triangle-topright"></div>
@@ -16,27 +77,27 @@ const Services = ({props}) => {
         Some Of Our <span className="text-red"> Service</span> Where We Achieve
         Great Success
       </p>
-      {/* <div className="container"> */}
 
       <div className="serv-container w-4/5 m-auto">
         <div className="service-card-row   ">
-          {data.map((item, index) => {
+          {Data &&  Data?.map((item, index) => {
+            console.log(item)
             // const alldata = item.company_service;
             if(mainindex == -1){
 
               return (
-                item.company_service.map((items,idx)=>(
-                  items.image && 
+                // item.company_service.map((items,idx)=>(
+                //   items.image && 
                 <div className="service-card relative">
-                <Link to={`/serv-details?${items.slug}`} onClick={()=>{updatecate(index);updateval(idx)}}>
+                <Link to={`/serv-details/${item.slug}`}>
                   <div className="card-left"></div>
                   <div className="card-right"></div>
-                  <img src={items.image} alt={`Service ${index + 1}`} />
-                  <p className="">{items.name} </p>
+                  <img src={item.image} alt={`Service ${index + 1}`} />
+                  <p className="">{item.name} </p>
                 </Link>
              </div>
                 
-                ))
+                // ))
                 )
               }
               else{
@@ -45,7 +106,7 @@ const Services = ({props}) => {
                   item.company_service.map((items,idx)=>(
                     items.image && 
                   <div className="service-card relative">
-                  <Link to={`/serv-details?${items.slug}`} onClick={()=>{updatecate(index);updateval(idx)}}>
+                  <Link to={`/serv-details/${items.slug}`} >
                     <div className="card-left"></div>
                     <div className="card-right"></div>
                     <img src={items.image} alt={`Service ${index + 1}`} />

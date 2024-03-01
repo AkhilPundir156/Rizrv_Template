@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import {  HiMail, HiMenu, HiPhone} from "react-icons/hi";
 import img from "../assets/rizrv.png";
 import { IoIosArrowDown } from "react-icons/io";
-import data from "../assets/data.js";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 
 
 function Navbar(props) {
-  // console.log(props)
   const items =(Object.values(props))[0];
   const updatecate = props.updatecate;
   const updateval = props.updateval;
@@ -122,7 +119,7 @@ function Navbar(props) {
                       <div className="h-[440px] bg-[#e4f6ff]  overflow-scroll text-[#00354d] m-auto">
                         {item.company_service.map((items, idx) => (
                           <Link
-                            to={`/serv-details?${items.slug}`}
+                            to={`/serv-details/${items.slug}`}
                             onClick={()=>{setIsOpen(false);updatecate(index);updateval(idx)}} 
                           >
                             <div className="p-2">{items.name}</div>
@@ -200,7 +197,7 @@ function Navbar(props) {
               
               
               items.map((item,idx)=>(
-              <div className="third-line-items flex relative startup px-4 cursor-pointer" onClick={()=>{updateindex(idx);window.scroll({top:1200,behavior:'smooth'})}}>
+              <div className="third-line-items flex relative startup px-4 cursor-pointer" onClick={()=>{console.log(item);updatecate(item.slug);;;window.scroll({top:1200,behavior:'smooth'})}}>
               <Link to='/'><div className=" text-current font-bold pr-2">{item.name}</div></Link>
               <i className="absolute p-2 pl-16 right-0 text-xs ">
                 {" "}
@@ -218,7 +215,7 @@ function Navbar(props) {
                     {item.company_service.map((items, index) => (
                       <div key={index} className=" pt-1 ">
                         <div className="text-sm font-heading mb-1 ">
-                          <Link to={`/serv-details?${items.slug}`} onClick={()=>{updatecate(idx);updateval(index)}} >{items.name}</Link>
+                          <Link to={`/serv-details/${items.slug}`} onClick={()=>{updatecate(idx);updateval(index)}} >{items.name}</Link>
                         </div>
                       </div>
                     ))}

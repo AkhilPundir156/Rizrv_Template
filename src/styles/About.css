@@ -3,6 +3,7 @@
     /* height:vh; */
     /* border-top: 500px solid #f80b02; */
     position: relative;
+    margin-bottom: 3rem;
 }
 
 .triangle-topright {
@@ -23,7 +24,7 @@
     height: 0;
     border-bottom: 500px solid red;
     border-left: 500px solid transparent;
-    top: 5rem;
+    bottom: 0;
     opacity: .35;
     z-index: -1;
   }

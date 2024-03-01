@@ -40,7 +40,7 @@ const Footer = () => {
                                     <li className='flex relative '><i className='relative'> <IoIosArrowForward className='m-1' /></i><Link to='/aboutus' className="text-white">About Us</Link></li>
                                     <li className='flex relative '><i className='relative'> <IoIosArrowForward className='m-1' /></i><Link to="privacypolicy" className="text-white">Privacy Policy</Link></li>
                                     <li className='flex relative '><i className='relative'> <IoIosArrowForward className='m-1' /></i><Link to="termscond" className="text-white">Terms & Conditions</Link></li>
-                                    <li className='flex relative '><i className='relative'> <IoIosArrowForward className='m-1' /></i><Link to="cancellation" className="text-white">Refund & Cancellation</Link></li>
+                                    <li className='flex relative '><i className='relative'> <IoIosArrowForward className='m-1' /></i><Link to="cancellation" className="text-white">Disclaimer</Link></li>
                                 </ul>
                             </div>
                         </div>
