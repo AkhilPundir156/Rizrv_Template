@@ -1,0 +1,272 @@
+.about-section{
+    /* background-color: red; */
+    /* height:vh; */
+    /* border-top: 500px solid #f80b02; */
+    position: relative;
+}
+
+.triangle-topright {
+    width: 0;
+    height: 0;
+    border-top: 500px solid red;
+    border-left: 500px solid transparent;
+    position: absolute;
+    right: 0;
+    opacity: .35;
+    z-index: -1;
+}
+
+.triangle-bottomright {
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 500px solid red;
+    border-left: 500px solid transparent;
+    top: 5rem;
+    opacity: .35;
+    z-index: -1;
+  }
+  .about-first{
+    width: 41.33%;
+  }
+  .about-second{
+    width: 41.33%;
+    height: fit-content;
+    padding: 7rem;
+    padding-top: 2rem;
+    position: relative;
+
+  }
+  .about-flex{
+    justify-content: center;
+    padding-top: 4rem;
+  }
+.years{
+    position: absolute;
+
+    /* height: fit-content; */
+    border-radius: 50%;
+    text-align: center;
+    padding: 1rem;
+    top: 27%;
+    left: 35%;
+}
+.year-border{
+    /* width: 100%; */
+    /* height: 100%; */
+    padding: 3rem;
+    border: solid red 2px;
+    border-radius: 50%;
+    border-style:dashed;
+}
+.trianglesh{
+    border-top: 2rem solid #00354e;
+    border-right: 2rem solid transparent;
+}
+
+.serv-triangle-topright {
+    width: 0;
+    height: 0;
+    border-top: 600px solid red;
+    border-right: 600px solid transparent;
+    position: absolute;
+    opacity: .35;
+    top: 0;
+    z-index: -1;
+}
+
+.serv-triangle-bottomright {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 600px solid red;
+    border-right: 600px solid transparent;
+    /* top: 20rem; */
+    bottom: 0;
+    opacity: .35;
+    z-index: -1;
+  }
+
+
+  .service-card-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+ 
+  
+  .service-card img {
+    width: 100%;
+    height: 14rem;
+  }
+  
+  .service-card p {
+
+    font-weight: bold;
+    color: rgb(77, 76, 76);
+    background-color: white;
+    padding: .5rem;
+    margin: 0;
+  }
+
+  
+
+
+  .service-card {
+    width: calc(20% - 10px);
+    margin-bottom: 40px;
+    margin-inline: 1%;
+    text-align: center;
+    overflow: hidden;
+    height: fit-content;
+    position: relative;
+
+}
+
+.card-left, .card-right {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: opacity .3s ease, transform .5s ease;
+}
+
+.card-left {
+    right: 1.5rem;
+    border-top: 14rem solid red;
+    border-left: 14rem solid transparent;
+}
+
+.card-right {
+    right: 1.5rem;
+    border-bottom: 14rem solid red;
+    border-left: 14rem solid transparent;
+}
+
+.service-card:hover .card-left,
+.service-card:hover .card-right {
+    transform: translateX(1.5rem);
+    opacity: .55;
+}
+
+.us-card-main{
+  width: 31%;
+  margin-bottom: 2rem;
+  box-shadow: 2px 2px  rgba(235, 233, 233, 0.3);
+  color: red;
+  transition: transform .5s ease;
+}
+.us-card-main:hover ,.us-card:hover{
+  transform: translateY(-.7rem);
+}
+.us-card{
+  background-color: red;
+  opacity: .9;
+  width: 31%;
+  margin-bottom: 2rem;
+  color: white;
+  transition: transform .5s ease;
+
+}
+.us-left{
+  width: 0;
+    height: 0;
+    border-top: 14rem solid white;
+    border-right: 14rem solid transparent;
+   
+    position: absolute;
+    opacity: .15;
+    z-index: -1;
+}
+.us-right{
+  position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 14rem solid white;
+    border-right: 14rem solid transparent;
+    /* top: 20rem; */
+    bottom: 0;
+    opacity: .15;
+    z-index: -1;
+}
+.us-left-mid{
+  width: 0;
+    height: 0;
+    border-top: 14rem solid red;
+    border-right: 14rem solid transparent;
+    position: absolute;
+    opacity: .35;
+    z-index: -1;
+}
+.us-right-mid{
+  position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 14rem solid red;
+    border-right: 14rem solid transparent;
+    /* top: 20rem; */
+    bottom: 0;
+    opacity: .35;
+    z-index: -1;
+}
+
+
+/* Testimonial section  */
+
+.test-section{
+  background-image: url("../assets/test-back.jpg");
+  height: auto;
+}
+.test-top{
+  width: fit-content;
+  margin:auto;
+}
+.test-top-left{
+  height: 70%;
+  position: absolute;
+  border-left: 4px solid red;
+  border-top: 4px solid red;
+  width: 20%;
+}
+.test-top-right{
+  height: 70%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-right: 4px solid red;
+  border-bottom: 4px solid red;
+  width: 20%;
+}
+
+.caro-item img{
+  height: 70vh;
+}
+
+.caro-triangle-topright {
+  width: 0;
+  height: 0;
+  border-top: 350px solid red;
+  border-right: 200px solid transparent;
+  position: absolute;
+  opacity: .75;
+  top: 0;
+  z-index: -1;
+}
+
+.caro-triangle-bottomright {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-bottom: 440px solid red;
+  border-right: 300px solid transparent;
+  /* top: 20rem; */
+  bottom: 0;
+  opacity: .75;
+  z-index: -1;
+}
+.caro{
+  overflow-x: hidden;
+}

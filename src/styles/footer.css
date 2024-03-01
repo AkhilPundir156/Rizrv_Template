@@ -1,0 +1,44 @@
+.footer-img{
+    -webkit-animation: 5s linear infinite footer-shape-ani;
+    animation: 5s linear infinite footer-shape-ani;
+}
+
+@keyframes footer-shape-ani {
+    0% , 100% {
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 1;
+    }
+}
+
+.footer-link ul li{
+    padding: .5rem;
+}
+.footer-link ul li i{
+    color: red;
+}
+.footer-link h3{
+    font-size: x-large;
+    font-weight: bold;
+}
+.footer-contact ul li{
+    padding: .2rem;
+}
+.footer-contact ul li i{
+    color: red;
+}
+.footer{
+    background-color: #111;
+    z-index: 0;
+    padding-top: 4rem;
+}
+
+.copyright-area {
+    padding: 22px 0 21px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    text-align: center;
+    background-color: #08172ed9;
+    margin-top: 15px;
+    color: white;
+}
