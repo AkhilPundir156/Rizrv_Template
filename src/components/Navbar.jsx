@@ -1,31 +1,32 @@
-import React, {  useState } from "react";
-import {  HiMail, HiMenu, HiPhone} from "react-icons/hi";
+import React, { useState } from "react";
+import { HiMail, HiMenu, HiPhone } from "react-icons/hi";
 import img from "../assets/rizrv.png";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-
-
 function Navbar(props) {
-  const items =(Object.values(props))[0];
+  const items = Object.values(props)[0];
   const updatecate = props.updatecate;
   const updateval = props.updateval;
   const updateindex = props.updateindex;
+  const compdata = props?.compdata?.data?.company_data?.configs;
+  // console.log(compdata);
   // console.log(updateval)
   // console.log(mainitems);
   // console.log(items);
   // items.map((item,idx)=>{console.log(item)})
-  
-
   // items.map((item,index)=>console.log(1))
+
   const [isOpen, setIsOpen] = useState(false);
   const [isdropped, setDrop] = useState("");
-
-
 
   return (
     <>
       <section className="sticky top-0 z-10 bg-white w-full">
+        {/* <div className="mt-0 -mb-2 text-xl font-semibold">
+          <marquee  behavior="smooth" direction="">Hello i am akhil</marquee>
+        </div> */}
+
         {/* First line that conatin information and some links  */}
         <div className="nav-first-line flex justify-between  items-center ">
           <div className="nav-details flex px-6 flex-grow pt-1 bg-current  text-white h-8 relative">
@@ -36,7 +37,7 @@ function Navbar(props) {
                   <HiMail />{" "}
                 </i>
               </div>
-              <p>Manal@gmail.com</p>
+              <p>{compdata?.company_email}</p>
             </div>
             <div className="flex">
               <div className="my-1 px-1">
@@ -45,7 +46,7 @@ function Navbar(props) {
                   <HiPhone />
                 </i>
               </div>
-              <p>+9100000000</p>
+              <p>+91-{compdata?.company_phone}</p>
             </div>
             <div className=" trianglesh absolute h-8 w-5 bg-white right-0 -mt-1 "></div>
           </div>
@@ -84,7 +85,12 @@ function Navbar(props) {
         {/* Second line that contain only logo  */}
         <div className="second-line ">
           <div className="second-img">
-            <img src={img} className=" mx-auto h-8" alt="" srcset="" />
+            <img
+              src={compdata?.web_logo}
+              className=" mx-auto h-8"
+              alt=""
+              srcset=""
+            />
           </div>
         </div>
         {/* third line and the main line of the navbar  */}
@@ -101,26 +107,31 @@ function Navbar(props) {
           </nav>
           {isOpen && (
             <div className="absolute  h-fit bg-white z-20 w-full -mt-1 border-b-2 border-b-black overflow-scroll">
-              {
-                items.map((item,index)=>(
-
+              {items.map((item, index) => (
                 <ul className="p-4">
                   <li className=" text-xl font-semibold py-1">
                     <div
                       className="flex items-end "
                       onClick={() =>
-                        isdropped === item.name ? setDrop("") : setDrop(item.name)
+                        isdropped === item.name
+                          ? setDrop("")
+                          : setDrop(item.name)
                       }
                     >
                       {" "}
-                      {item.name} <IoIosArrowDown className="mx-1 pb-1  text-lg" />
+                      {item.name}{" "}
+                      <IoIosArrowDown className="mx-1 pb-1  text-lg" />
                     </div>
                     {isdropped === item.name && (
                       <div className="h-[440px] bg-[#e4f6ff]  overflow-scroll text-[#00354d] m-auto">
                         {item.company_service.map((items, idx) => (
                           <Link
                             to={`/serv-details/${items.slug}`}
-                            onClick={()=>{setIsOpen(false);updatecate(index);updateval(idx)}} 
+                            onClick={() => {
+                              setIsOpen(false);
+                              updatecate(index);
+                              updateval(idx);
+                            }}
                           >
                             <div className="p-2">{items.name}</div>
                           </Link>
@@ -128,8 +139,6 @@ function Navbar(props) {
                       </div>
                     )}
                   </li>
-
-
 
                   {/* <li className=" text-xl font-semibold py-1 ">
                     <div
@@ -179,12 +188,8 @@ function Navbar(props) {
                       </div>
                     )}
                   </li> */}
-
-
-
                 </ul>
-                ))
-              }
+              ))}
             </div>
           )}
         </div>
@@ -193,43 +198,51 @@ function Navbar(props) {
 
         <nav className="third-line w-full h-9 border-black border-b-4 mt-6 ">
           <div className="third-line-item flex justify-center">
-            {
-              
-              
-              items.map((item,idx)=>(
-              <div className="third-line-items flex relative startup px-4 cursor-pointer" onClick={()=>{console.log(item);updatecate(item.slug);;;window.scroll({top:1200,behavior:'smooth'})}}>
-              <Link to='/'><div className=" text-current font-bold pr-2">{item.name}</div></Link>
-              <i className="absolute p-2 pl-16 right-0 text-xs ">
-                {" "}
-                <IoIosArrowDown />{" "}
-              </i>
-
-              {/* To display all the items of the startup */}
-
-              
-
-             { item.name !== "ISO" && item.name !== "Banking" &&
-              <div className=" z-10 nav-items-startup  bg-slate-400   w-full fixed left-0 top-[7.5rem] border-t-2 mt-1.5 h-fit ">
-                <div className="  pl-20 bg-white pb-3 border-gray-700 border-b-2 nav-checks">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pt-3">
-                    {item.company_service.map((items, index) => (
-                      <div key={index} className=" pt-1 ">
-                        <div className="text-sm font-heading mb-1 ">
-                          <Link to={`/serv-details/${items.slug}`} onClick={()=>{updatecate(idx);updateval(index)}} >{items.name}</Link>
-                        </div>
-                      </div>
-                    ))}
+            {items.map((item, idx) => (
+              <div
+                className="third-line-items flex relative startup px-4 cursor-pointer"
+                onClick={() => {
+                  updatecate(item.slug);
+                  window.scroll({ top: 1200, behavior: "smooth" });
+                }}
+              >
+                <Link to="/">
+                  <div className=" text-current font-bold pr-2">
+                    {item.name}
                   </div>
-                </div>
+                </Link>
+                <i className="absolute p-2 pl-16 right-0 text-xs ">
+                  {" "}
+                  <IoIosArrowDown />{" "}
+                </i>
+
+                {/* To display all the items of the startup */}
+
+                {item.name !== "ISO" && item.name !== "Banking" && (
+                  <div className=" z-10 nav-items-startup  bg-slate-400   w-full fixed left-0 top-[7.5rem] border-t-2 mt-1.5 h-fit ">
+                    <div className="  pl-20 bg-white pb-3 border-gray-700 border-b-2 nav-checks">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pt-3">
+                        {item.company_service.map((items, index) => (
+                          <div key={index} className=" pt-1 ">
+                            <div className="text-sm font-heading mb-1 ">
+                              <Link
+                                to={`/serv-details/${items.slug}`}
+                                onClick={() => {
+                                  updatecate(idx);
+                                  updateval(index);
+                                }}
+                              >
+                                {items.name}
+                              </Link>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-              }
-            </div>
-
-              ))
-
-              
-          }
-              
+            ))}
           </div>
         </nav>
       </section>

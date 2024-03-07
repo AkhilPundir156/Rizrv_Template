@@ -1,8 +1,8 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const PrivacyPolicy = () => {
-  const [Data, setData] = useState('')
+  const [Data, setData] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
 
         if (subdomain) {
           const apiUrl = `https://apis.rizrv.in/api/company/front/pages/data/${subdomain}`;
-          
+
           const response = await axios.get(apiUrl);
           setData(response.data.data.privacy_policy);
         }
@@ -23,20 +23,18 @@ const PrivacyPolicy = () => {
       }
     };
 
-     fetchData();
-     window.scroll({top:0,behavior:"smooth"})
+    fetchData();
+    window.scroll({ top: 0, behavior: "smooth" });
 
     // console.log(Data)
-
-
-
-  }, [])
+  }, []);
   return (
     <div className="bg-gray-100">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="prose lg:prose-lg" dangerouslySetInnerHTML={{__html : Data}}>
-
-        </div>
+        <div
+          className="prose lg:prose-lg"
+          dangerouslySetInnerHTML={{ __html: Data }}
+        ></div>
       </div>
     </div>
   );

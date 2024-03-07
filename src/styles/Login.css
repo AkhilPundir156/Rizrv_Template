@@ -1,161 +1,168 @@
 .signup {
-    margin-bottom: 150px;
+  margin-bottom: 150px;
 }
-@media screen and (min-width: 1024px){
-
-    .container1 {
-        max-width: 1200px;
-    }
+@media screen and (min-width: 1024px) {
+  .container1 {
+    max-width: 1200px;
+  }
 }
 @media screen and (max-width: 1200px) {
-
-    .container1 {
-        width: calc( 100% - 30px);
-        max-width: 100%;
-    }
+  .container1 {
+    width: calc(100% - 30px);
+    max-width: 100%;
+  }
 }
 .container1 {
-    width: 900px;
-    background: #fff;
-    margin: 0 auto;
-    box-shadow: 4px 15px 16.83px 4.17px rgba(0,0,0,.05);
-    border-radius: 20px;
+  width: 900px;
+  background: #fff;
+  margin: 0 auto;
+  box-shadow: 4px 15px 16.83px 4.17px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
 }
 
 .signup-content {
-    padding: 75px 0;
+  padding: 75px 0;
 }
-display-flex, .display-flex, .display-flex-center, .signup-content, .signin-content, .social-login, .socials {
-    display: flex;
-    display: -webkit-flex;
+display-flex,
+.display-flex,
+.display-flex-center,
+.signup-content,
+.signin-content,
+.social-login,
+.socials {
+  display: flex;
+  display: -webkit-flex;
 }
 .signup-form {
-    margin-left: 75px;
-    margin-right: 75px;
-    padding-left: 34px;
+  margin-left: 75px;
+  margin-right: 75px;
+  padding-left: 34px;
 }
-.signup-form, .signup-image, .signin-form, .signin-image {
-    width: 50%;
-    overflow: hidden;
+.signup-form,
+.signup-image,
+.signin-form,
+.signin-image {
+  width: 50%;
+  overflow: hidden;
 }
 
 .form-title {
-    margin-bottom: 33px;
+  margin-bottom: 33px;
 }
 .hh {
-    line-height: 1.66;
-    margin: 0;
-    padding: 0;
-    font-weight: 700;
-    color: #222;
-    font-family: Poppins;
-    font-size: 36px;
+  line-height: 1.66;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  color: #222;
+  font-family: Poppins;
+  font-size: 36px;
 }
 
 .register-form {
-    width: 100%;
+  width: 100%;
 }
 form {
-    display: block;
-    margin-top: 0em;
+  display: block;
+  margin-top: 0em;
 }
 .form-group {
-    position: relative;
-    margin-bottom: 25px;
-    overflow: hidden;
+  position: relative;
+  margin-bottom: 25px;
+  overflow: hidden;
 }
 
 .form-group label {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #222;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #222;
 }
 .form-group label {
-    cursor: default;
+  cursor: default;
 }
 
 .form-group input {
-    width: 100%;
-    display: block;
-    border: none;
-    border-bottom: 1px solid #999;
-    padding: 6px 30px;
-    font-family: Poppins;
-    box-sizing: border-box;
-    outline: none;
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 6px 30px;
+  font-family: Poppins;
+  box-sizing: border-box;
+  outline: none;
 }
 
-.form-group input[type=checkbox]:not(old) {
-    width: 2em;
-    margin: 0;
-    padding: 0;
-    font-size: 1em;
-    display: none;
+.form-group input[type="checkbox"]:not(old) {
+  width: 2em;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  display: none;
 }
 
-.form-group input[type=checkbox]:not(old)+label {
-    display: inline-block;
-    line-height: 1.5em;
-    margin-top: 6px;
+.form-group input[type="checkbox"]:not(old) + label {
+  display: inline-block;
+  line-height: 1.5em;
+  margin-top: 6px;
 }
 .label-agree-term {
-    position: relative;
-    top: 0%;
-    transform: translateY(0);
+  position: relative;
+  top: 0%;
+  transform: translateY(0);
 }
 
-input[type=checkbox]:not(old)+label>span {
-    display: inline-block;
-    width: 13px;
-    height: 13px;
-    margin-right: 15px;
-    margin-bottom: 3px;
-    border: 1px solid #999;
-    border-radius: 2px;
-    background: #fff;
-    vertical-align: bottom;
+input[type="checkbox"]:not(old) + label > span {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-right: 15px;
+  margin-bottom: 3px;
+  border: 1px solid #999;
+  border-radius: 2px;
+  background: #fff;
+  vertical-align: bottom;
 }
-input[type=checkbox]:not(old)+label {
-    display: inline-block;
-    line-height: 1.5em;
-    margin-top: 6px;
+input[type="checkbox"]:not(old) + label {
+  display: inline-block;
+  line-height: 1.5em;
+  margin-top: 6px;
 }
 
 .term-service {
-    font-size: 13px;
-    color: #222;
+  font-size: 13px;
+  color: #222;
 }
 .form-group Link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .form-group:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
-.form-submit{
-    border: none;
+.form-submit {
+  border: none;
 }
-.signup-image{
-    text-align: center;
+.signup-image {
+  text-align: center;
 }
 
 .form-submit {
-    display: inline-block;
-    background: #6dabe4;
-    color: #fff;
-    border-bottom: none;
-    width: auto;
-    padding: 15px 39px;
-    border-radius: 5px;
-    margin-top: 25px;
-    cursor: pointer;
+  display: inline-block;
+  background: #6dabe4;
+  color: #fff;
+  border-bottom: none;
+  width: auto;
+  padding: 15px 39px;
+  border-radius: 5px;
+  margin-top: 25px;
+  cursor: pointer;
 }
 .signup-image Link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
 }

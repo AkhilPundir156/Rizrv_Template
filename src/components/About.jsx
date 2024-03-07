@@ -5,7 +5,7 @@ import about3 from "../assets/about3.webp";
 import axios from "axios";
 
 const About = () => {
-  const [Data, setData] = useState('')
+  const [Data, setData] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,7 @@ const About = () => {
 
         if (subdomain) {
           const apiUrl = `https://apis.rizrv.in/api/company/front/pages/data/${subdomain}`;
-          
+
           const response = await axios.get(apiUrl);
           setData(response.data.data.about_us);
         }
@@ -26,30 +26,23 @@ const About = () => {
       }
     };
 
-     fetchData();
+    fetchData();
 
     // console.log(Data)
+  }, []);
 
+  useEffect(() => window.scroll({ top: 0, behavior: "smooth" }), []);
 
-
-  }, [])
-
-  useEffect(() => window.scroll({top:0,
-  behavior:"smooth"}), [])
-  
   return (
     <section className="about-section h-fit mt-8 ">
       <div className="triangle-topright"></div>
       <div className="triangle-bottomright"></div>
 
       <div className="flex about-flex">
-      <div className="about-first " >
-    
-      <div dangerouslySetInnerHTML={ {__html : Data}}></div>
-    
+        <div className="about-first ">
+          <div dangerouslySetInnerHTML={{ __html: Data }}></div>
+        </div>
 
-      </div>
-  
         {/* <div className="about-first " >
            <p className="text-red pb-3">About</p>
           <p className="text-3xl pl-4 font-bold text-gray-700 pb-4">
@@ -77,7 +70,7 @@ const About = () => {
             Explore About us 
            </button>
           </div> */}
-        
+
         <div className="about-second  ">
           <div class="grid grid-cols-2 gap-4 about-items ">
             <div class="col-span-2 lg:col-span-1">
@@ -95,7 +88,6 @@ const About = () => {
               <h2 className="text-3xl">3+</h2>
               <p className="text-xl">years</p>
             </div>
-
           </div>
         </div>
       </div>
