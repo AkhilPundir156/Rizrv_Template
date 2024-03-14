@@ -39,7 +39,7 @@ const About = () => {
       <div className="triangle-bottomright"></div>
 
       <div className="flex about-flex">
-        <div className="about-first ">
+        <div className="about-first  -mt-10">
           <div dangerouslySetInnerHTML={{ __html: Data }}></div>
         </div>
 

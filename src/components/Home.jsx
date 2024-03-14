@@ -6,6 +6,10 @@ import Carousel from "./Carousel";
 import Whyus from "./Whyus";
 
 const Home = (props) => {
+  // console.log(props)
+  const title = props?.compdata?.data?.company_data?.theme?.content_title_status || 0;
+  // console.log(props.compdata.data.company_data.theme.content_title_status)
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -16,8 +20,9 @@ const Home = (props) => {
     <>
       <Carousel />
       <About />
-      <Services props={props} />
-      <Whyus />
+      <Services props={props} />{
+      title && 
+      <Whyus props={props} />}
       <Testimonial />
     </>
   );

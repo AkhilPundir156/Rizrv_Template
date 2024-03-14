@@ -101,6 +101,7 @@ function App() {
                 updateval={updateval}
                 mainindex={mainindex}
                 updateindex={updateindex}
+                compdata={compdata}
               />
             }
           />

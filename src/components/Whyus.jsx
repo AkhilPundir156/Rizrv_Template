@@ -1,7 +1,8 @@
 import React from "react";
 import { GrCertificate } from "react-icons/gr";
 
-const Whyus = () => {
+const Whyus = (props) => {
+  console.log(props.props.compdata.data.company_data.theme.content_title_status)
   return (
     <section className="pt-4">
       <p className="serv-head text-red text-center pt-4 ">Why Choose Us</p>

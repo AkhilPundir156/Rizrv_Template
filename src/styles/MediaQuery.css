@@ -150,6 +150,9 @@
   .wid div input {
     margin-left: 1rem;
   }
+  .service-card img{
+    height: fit-content;
+  }
 }
 @media screen and (max-width: 412px) {
   .nav-first-details {
