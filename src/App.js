@@ -66,7 +66,7 @@ function App() {
           const apiUrl = `https://apis.rizrv.in/api/company/setup/info/${subdomain}`;
 
           const response = await axios.get(apiUrl);
-          console.log(response);
+          // console.log(response);
           setcompdata(response);
         } else {
           console.error("Domain not found in the URL.");

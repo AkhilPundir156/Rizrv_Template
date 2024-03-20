@@ -44,7 +44,7 @@ const About = () => {
         </div>
 
         {/* <div className="about-first " >
-           <p className="text-red pb-3">About</p>
+          <p className="text-red pb-3">About</p>
           <p className="text-3xl pl-4 font-bold text-gray-700 pb-4">
             All Chartered Accountant (CA) & Business legal Service Provider
           </p>
