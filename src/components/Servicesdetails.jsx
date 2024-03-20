@@ -118,7 +118,7 @@ const Servicesdetails = () => {
                   onClick={() => settoggle(!toggle)}
                   className="text-blue-600 leading-8 cursor-pointer"
                 >
-                  Load more
+                  Load {!toggle?"More":"Less"}
                 </span>
               </p>
             </div>
@@ -151,7 +151,7 @@ const Servicesdetails = () => {
                     ></p> */}
                     {slugdata?.ca_services?.description && htmlToText(slugdata?.ca_services?.description).slice(0,100)}... <br />
                   </div>
-                   <button className=" text-blue-500" onClick={()=>settoggle(!toggle)}>Read More</button>
+                   <button className=" text-blue-500" onClick={()=>settoggle(!toggle)}>Read {!toggle?"More":"Less"}</button>
                 </div>
               </div>
             </div>
