@@ -4,8 +4,10 @@ import about2 from "../assets/about2.webp";
 import about3 from "../assets/about3.webp";
 import axios from "axios";
 
-const About = () => {
+const About = (props) => {
   const [Data, setData] = useState("");
+  const {ThemeData} = props;
+  console.log("this is about page",ThemeData);
 
   useEffect(() => {
     const fetchData = async () => {

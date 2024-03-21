@@ -10,6 +10,8 @@ function Navbar(props) {
   const updateval = props.updateval;
   const updateindex = props.updateindex;
   const compdata = props?.compdata?.data?.company_data?.configs;
+  const {ThemeData} = props
+  // console.log("This is navbar",ThemeData);
   // console.log(compdata);
   // console.log(updateval)
   // console.log(mainitems);
@@ -106,7 +108,7 @@ function Navbar(props) {
             </div>
           </nav>
           {isOpen && (
-            <div className="absolute  h-fit bg-white z-20 w-full -mt-1 border-b-2 border-b-black overflow-scroll">
+            <div className="opened-nav absolute  h-fit bg-white z-20 w-full -mt-1 border-b-2 border-b-black overflow-scroll">
               {items.map((item, index) => (
                 <ul className="p-4">
                   <li className=" text-xl font-semibold py-1">

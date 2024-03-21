@@ -1,33 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HiCheck } from "react-icons/hi";
 import axios from "axios";
-
-
-// to show stars
-function truncateHTML(html, maxLength) {
-  const tempElement = document.createElement("div");
-  tempElement.innerHTML = html;
-
-  let text = "";
-  let charCount = 0;
-
-  for (const node of tempElement.childNodes) {
-    if (node.nodeType === Node.TEXT_NODE) {
-      text += node.textContent;
-      charCount += node.textContent.length;
-    } else {
-      text += node.outerHTML;
-      charCount += node.outerHTML.length;
-    }
-
-    if (charCount >= maxLength) {
-      break;
-    }
-  }
-
-  return text;
-}
-
 
 function htmlToText(html) {
   return html.replace(/<[^>]+>/g, '');
@@ -36,7 +8,7 @@ function htmlToText(html) {
 const Servicesdetails = () => {
   const [toggle, settoggle] = useState(false);
   const [slugdata, setslugdata] = useState("");
-  let domain, slugurl, totaldesc;
+  let domain, slugurl,totaldesc;
 
   const defaultimg = "https://resrv.in/assets/img/placeholder.png"
 

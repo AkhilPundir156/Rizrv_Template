@@ -18,6 +18,8 @@ import axios from "axios";
 function App() {
   const [Data, setData] = useState([]);
   const [navitems, setnavitems] = useState([]);
+  const [ThemeData, setThemeData] = useState()
+
   // console.log("this is page",Date.now())
   const [cate, setCate] = useState("");
   const [val, setVal] = useState("");
@@ -78,6 +80,31 @@ function App() {
 
     fetchData();
   }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = window.location.hostname;
+        const domainArray = url.split(".");
+        const subdomain = domainArray[0];
+        // console.log(subdomain);
+
+        if (subdomain) {
+          const apiUrl = `https://apis.rizrv.in/api/company/setup/info/${subdomain}`;
+
+          const response = await axios.get(apiUrl);
+          setThemeData(response?.data?.company_data?.theme);
+          console.log("this is service page",response.data.company_data.theme);
+          // console.log(Data)
+        } else {
+          console.error("Domain not found in the URL.");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -88,6 +115,7 @@ function App() {
           updateval={updateval}
           updateindex={updateindex}
           compdata={compdata}
+          ThemeData={ThemeData}
         />
 
         <Routes>
@@ -102,19 +130,20 @@ function App() {
                 mainindex={mainindex}
                 updateindex={updateindex}
                 compdata={compdata}
+                ThemeData={ThemeData}
               />
             }
           />
-          <Route path="/termscond" element={<Termsandcond />} />
-          <Route path="/Aboutus" element={<About />} />
-          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/cancellation" element={<Cancellation />} />
-          <Route path="/contact" element={<ContactForm />} />
-          <Route path="/serv-details/:slug" element={<Servicesdetails />} />
-          <Route path="/signup" element={<SignForm />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/termscond" element={<Termsandcond ThemeData={ThemeData} />} />
+          <Route path="/Aboutus" element={<About ThemeData={ThemeData}/>} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy ThemeData={ThemeData}/>} />
+          <Route path="/cancellation" element={<Cancellation ThemeData={ThemeData}/>} />
+          <Route path="/contact" element={<ContactForm ThemeData={ThemeData}/>} />
+          <Route path="/serv-details/:slug" element={<Servicesdetails ThemeData={ThemeData}/>} />
+          <Route path="/signup" element={<SignForm ThemeData={ThemeData}/>} />
+          <Route path="/login" element={<LoginForm ThemeData={ThemeData}/>} />
         </Routes>
-        <Footer compdata={compdata} />
+        <Footer compdata={compdata} ThemeData={ThemeData}/>
       </Router>
     </>
   );

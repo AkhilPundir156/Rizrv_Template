@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import busimg from "../assets/bus-img.jpg";
+// import busimg from "../assets/bus-img.jpg";
 import axios from "axios";
 
 function htmlToText(html) {
   return html.replace(/<[^>]+>/g, "");
 }
 
-const Carousel = () => {
+const Carousel = (props) => {
   const [compdata, setcompdata] = useState();
+  const {ThemeData} = props
+  console.log("this is theme",ThemeData)
 
   const settings = {
     // dots: true,

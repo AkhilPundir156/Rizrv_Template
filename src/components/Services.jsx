@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Services = ({ props }) => {
-  const { data, updatecate, updateval, mainindex, category } = props;
+  const { data, updatecate, updateval, mainindex, category ,ThemeData } = props;
+  console.log("services page",ThemeData);
   const [Data, setData] = useState("");
 
   const defaultimg = "https://resrv.in/assets/img/placeholder.png";

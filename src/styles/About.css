@@ -6,6 +6,11 @@
     margin-bottom: 3rem;
 }
 
+.opened-nav{
+  height: 90vh;
+  overflow-y: scroll
+}
+
 .triangle-topright {
     width: 0;
     height: 0;

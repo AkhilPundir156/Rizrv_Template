@@ -4,18 +4,21 @@ import { useEffect } from "react";
 
 const Whyus = (props) => {
   const [compdata, setcompdata] = useState()
+  const {ThemeData} = props
+  console.log("this is theme",ThemeData)
   // console.log("this is whyus page",props.props.compdata.data.company_data.theme.content_title_status)
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const url = window.location.hostname;
         const domainArray = url.split(".");
+        console.log(domainArray);
         const subdomain = domainArray[0];
         // console.log(subdomain);
 
         if (subdomain) {
-          const apiUrl = `https://apis.rizrv.in/api/company/front/news/zynomatrix`;
+          const apiUrl = `https://apis.rizrv.in/api/company/front/news/${subdomain}`;
 
           const response = await axios.get(apiUrl);
           // console.log("this is why us page ",response.data.news);

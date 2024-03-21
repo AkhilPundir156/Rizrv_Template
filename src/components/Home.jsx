@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import About from "./About";
 import Testimonial from "./Testimonial";
 import Services from "./Services";
@@ -6,7 +6,9 @@ import Carousel from "./Carousel";
 import Whyus from "./Whyus";
 
 const Home = (props) => {
-  // console.log(props)
+  console.log("this is home props",props)
+  const { ThemeData } = props;
+  console.log("this is home props",ThemeData)
   const title = props?.compdata?.data?.company_data?.theme?.content_title_status || 0;
   // console.log(props.compdata.data.company_data.theme.content_title_status)
 
@@ -16,14 +18,15 @@ const Home = (props) => {
       behavior: "smooth",
     });
   }, []);
+
   return (
     <>
-      <Carousel />
-      <About />
+      <Carousel ThemeData = {ThemeData} />
+      <About ThemeData = {ThemeData}/>
       <Services props={props} />{
       title && 
-      <Whyus props={props} />}
-      <Testimonial />
+      <Whyus ThemeData={ThemeData} />}
+      <Testimonial ThemeData = {ThemeData}/>
     </>
   );
 };

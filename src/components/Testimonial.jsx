@@ -5,9 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import "../styles/Testimonial.css";
 import axios from "axios";
 
-const Testimonial = () => {
+const Testimonial = (props) => {
   const sliderRef = useRef(null); // Reference to the Slider component
   const [Data, setData] = useState("");
+  const {ThemeData} = props
+  // console.log("this is theme",ThemeData)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,10 +39,11 @@ const Testimonial = () => {
   }, []);
 
   const CustomPrevArrow = () => {
+    console.log("previous button clicked ")
     return (
       <button
         className="custom-prev-arrow"
-        onClick={() => sliderRef.current.slickNext()}
+        onClick={() => sliderRef.current.slickPrev()}
       >
         <span>&#10094;</span> Previous
       </button>
@@ -48,6 +51,7 @@ const Testimonial = () => {
   };
 
   const CustomNextArrow = () => {
+    console.log("next button clicked ");
     return (
       <button
         className="custom-next-arrow"
