@@ -220,6 +220,7 @@ const Servicesdetails = () => {
           </div>
         </div>
       </section>
+      {/* Toggle for Read More when clicked  */}
       {toggle && (
         <section className="bg-blue-200 p-4 ">
           <div className="bg-white p-8 shadow-md w-4/5 m-auto ">

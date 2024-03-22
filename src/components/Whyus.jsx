@@ -9,7 +9,7 @@ const Whyus = (props) => {
   // console.log("this is whyus page",props.props.compdata.data.company_data.theme.content_title_status)
   
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async () => { 
       try {
         const url = window.location.hostname;
         const domainArray = url.split(".");
