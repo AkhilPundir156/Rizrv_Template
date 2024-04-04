@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Services = ({ props }) => {
-  const { data, updatecate, updateval, mainindex, category ,ThemeData } = props;
-  console.log("services page",ThemeData);
+  const { data, updatecate, updateval, mainindex, category, ThemeData } = props;
   const [Data, setData] = useState("");
+  const primary_color = ThemeData?.primary_color;
+  const menu_colors = ThemeData?.menu_colors;
 
   const defaultimg = "https://resrv.in/assets/img/placeholder.png";
 
@@ -29,7 +30,7 @@ const Services = ({ props }) => {
     };
 
     fetchcatedata();
-  }, [category]);
+  }, [category]); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,9 +61,9 @@ const Services = ({ props }) => {
     <section className="services-section relative ">
       <div className="serv-triangle-topright"></div>
       <div className="serv-triangle-bottomright"></div>
-      <p className="serv-head text-red text-center pt-4 ">Services</p>
+      <p className={`serv-head text-[${menu_colors}] text-center pt-4 `}>Services</p>
       <p className="serv-title text-4xl text-center font-bold text-gray-700 pt-2 pb-8">
-        Some Of Our <span className="text-red"> Service</span> Where We Achieve
+        Some Of Our <span className={`text-[${menu_colors}]`}> Service</span> Where We Achieve
         Great Success
       </p>
 

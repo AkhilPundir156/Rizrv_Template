@@ -4,24 +4,24 @@ import "../styles/footer.css";
 import { IoIosArrowForward, IoLogoFacebook } from "react-icons/io";
 import {
   GrContact,
-  GrFacebook,
   GrInstagram,
   GrLinkedin,
   GrLocationPin,
   GrMail,
   GrPhone,
   GrTwitter,
-  GrYoutube,
 } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { BiLogoPlayStore } from "react-icons/bi";
 
 const Footer = (props) => {
   const compdata = props?.compdata?.data?.company_data?.configs;
-  //   console.log(compdata);
+  const ThemeData = props?.ThemeData;
+  const primary_color = ThemeData?.primary_color;
+  // console.log("This is ftter", ThemeData);
 
   return (
-    <section className="footer relative  h-fit">
+    <section className={`footer relative  h-fit `}>
       <div className="footer-main pb-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap w-4/5 m-auto">
@@ -151,7 +151,7 @@ const Footer = (props) => {
                         <IoIosArrowForward className="m-1" />
                       </i>
                       <Link
-                        to="serv-details/startup-usa-company-registration"
+                        to="/serv-details/startup-usa-company-registration"
                         className="text-white"
                       >
                         Company Registration
@@ -163,10 +163,11 @@ const Footer = (props) => {
                         <IoIosArrowForward className="m-1" />
                       </i>
                       <Link
-                        to="serv-details/goods-sevices-gst-registration"
+                        to="/serv-details/goods-sevices-gst-registration"
                         className="text-white"
                       >
-                        Gst Registration
+                        Gst Registra
+                        tion
                       </Link>
                     </li>
                     <li className="flex relative ">
@@ -175,7 +176,7 @@ const Footer = (props) => {
                         <IoIosArrowForward className="m-1" />
                       </i>
                       <Link
-                        to="serv-details/income-tax-itr-1-return"
+                        to="/serv-details/income-tax-itr-1-return"
                         className="text-white"
                       >
                         ITR-1 Return
@@ -187,7 +188,7 @@ const Footer = (props) => {
                         <IoIosArrowForward className="m-1" />
                       </i>
                       <Link
-                        to="serv-details/trademark-trademark-registration"
+                        to="/serv-details/trademark-trademark-registration"
                         className="text-white"
                       >
                         Trademark Registration
@@ -199,7 +200,7 @@ const Footer = (props) => {
                         <IoIosArrowForward className="m-1" />
                       </i>
                       <Link
-                        to="serv-details/compliance-llp-compliance"
+                        to="/serv-details/compliance-llp-compliance"
                         className="text-white"
                       >
                         Compliance
@@ -214,7 +215,7 @@ const Footer = (props) => {
                 <div className="footer-contact">
                   <h3 className="text-white text-2xl font-bold">
                     Contact Info
-                  </h3>
+                  </h3>                    
                   <ul>
                     <li className="flex relative ">
                       <i className="relative">
@@ -265,7 +266,7 @@ const Footer = (props) => {
 Disclaimer: A Portal is owned and operated by A Private Consultancy Firm and in no way represent any relation with any Government Authority or Body. We just to collect information from our clients so that our expert can easily understand their business or needs. By proceeding forward with this website you are aware that we are a private company managing this website and providing assistance based on the request from our customers and the fee collected in this website is a consultancy fee.
         </div> */}
 
-      <div class="copyright-area ">
+      <div class={`copyright-area bg-[${primary_color}]`}>
         <div class="container">
           <p>© Copyright {compdata?.copyright}</p>
         </div>

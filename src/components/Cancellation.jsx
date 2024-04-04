@@ -21,7 +21,7 @@ const Cancellation = () => {
       } catch (error) {
         console.error("Error fetching data:", error.message);
       }
-    };
+    };  
 
     fetchData();
 

@@ -12,7 +12,7 @@ function htmlToText(html) {
 const Carousel = (props) => {
   const [compdata, setcompdata] = useState();
   const {ThemeData} = props
-  console.log("this is theme",ThemeData)
+  // console.log("this is theme",ThemeData)
 
   const settings = {
     // dots: true,

@@ -50,7 +50,6 @@
   }
 .years{
     position: absolute;
-
     /* height: fit-content; */
     border-radius: 50%;
     text-align: center;
@@ -67,8 +66,8 @@
     border-style:dashed;
 }
 .trianglesh{
-    border-top: 2rem solid #00354e;
-    border-right: 2rem solid transparent;
+    /* border-top: 2rem solid #00354e; */
+    /* border-right: 2rem solid transparent; */
 }
 
 .serv-triangle-topright {
@@ -94,7 +93,6 @@
     z-index: -1;
   }
 
-
   .service-card-row {
     display: flex;
     flex-wrap: wrap;
@@ -102,24 +100,18 @@
     
   }
   
- 
-  
   .service-card img {
     width: 100%;
     height: 14rem;
   }
   
   .service-card p {
-
     font-weight: bold;
     color: rgb(77, 76, 76);
     background-color: white;
     padding: .5rem;
     margin: 0;
   }
-
-  
-
 
   .service-card {
     width: calc(20% - 10px);
@@ -129,7 +121,6 @@
     overflow: hidden;
     height: fit-content;
     position: relative;
-
 }
 
 .card-left, .card-right {
@@ -170,7 +161,7 @@
   transform: translateY(-.7rem);
 }
 .us-card{
-  background-color: red;
+  /* background-color: red; */
   opacity: .9;
   width: 31%;
   margin-bottom: 2rem;
@@ -183,11 +174,11 @@
     height: 0;
     border-top: 14rem solid white;
     border-right: 14rem solid transparent;
-   
     position: absolute;
     opacity: .15;
     z-index: -1;
 }
+
 .us-right{
   position: absolute;
     width: 0;
@@ -199,6 +190,7 @@
     opacity: .15;
     z-index: -1;
 }
+
 .us-left-mid{
   width: 0;
     height: 0;
@@ -208,6 +200,7 @@
     opacity: .35;
     z-index: -1;
 }
+
 .us-right-mid{
   position: absolute;
     width: 0;
@@ -219,8 +212,6 @@
     opacity: .35;
     z-index: -1;
 }
-
-
 /* Testimonial section  */
 
 .test-section{

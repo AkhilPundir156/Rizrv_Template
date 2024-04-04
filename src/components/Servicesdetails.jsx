@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function htmlToText(html) {
-  return html.replace(/<[^>]+>/g, '');
+  return html.replace(/<[^>]+>/g, "");
 }
 
-const Servicesdetails = () => {
+const Servicesdetails = (props) => {
   const [toggle, settoggle] = useState(false);
   const [slugdata, setslugdata] = useState("");
-  let domain, slugurl,totaldesc;
+  let domain, slugurl, totaldesc;
+  const ThemeData = props?.ThemeData;
+  const primary_color = ThemeData?.primary_color;
+  // console.log(ThemeData);
 
-  const defaultimg = "https://resrv.in/assets/img/placeholder.png"
+  const defaultimg = "https://resrv.in/assets/img/placeholder.png";
 
   useEffect(() => {
+    // console.log(window.location.href);
     window.scroll({ top: 0, behavior: "smooth" });
 
     const fetchData = async () => {
@@ -38,7 +42,10 @@ const Servicesdetails = () => {
     totaldesc = slugdata?.ca_services?.description;
   }, [window.location.href]);
 
-  const yellowStars = Math.min(Math.max(0, Number(slugdata?.ca_services?.ratings?.[1]) || 0), 5); // Ensure rating is between 0 and 5
+  const yellowStars = Math.min(
+    Math.max(0, Number(slugdata?.ca_services?.ratings?.[1]) || 0),
+    5
+  ); // Ensure rating is between 0 and 5
   const grayStars = 5 - yellowStars;
 
   const yellowStar = <span style={{ color: "orange" }}>★</span>;
@@ -57,7 +64,7 @@ const Servicesdetails = () => {
           {/* <p className="text-gray-500 p-4">{slugdata?.ca_services?.slug}</p> */}
           <div className="productwrapper flex w-full justify-around">
             <div className="w-2/5">
-              { (
+              {(
                 <img
                   className=" rounded-md"
                   src={slugdata?.ca_services?.image || defaultimg}
@@ -75,7 +82,7 @@ const Servicesdetails = () => {
                   </video>
                 ))}
 
-              <h3 className="text-xl font-bold underline py-2">
+              <h3 className="text-xl font-bold underline py-2"> 
                 Document Required{" "}
               </h3>
               <p className="text-gray-500 text-md ">
@@ -90,7 +97,7 @@ const Servicesdetails = () => {
                   onClick={() => settoggle(!toggle)}
                   className="text-blue-600 leading-8 cursor-pointer"
                 >
-                  Load {!toggle?"More":"Less"}
+                  Load {!toggle ? "More" : "Less"}
                 </span>
               </p>
             </div>
@@ -111,7 +118,9 @@ const Servicesdetails = () => {
                       <span key={index}>{grayStar}</span>
                     ))}
                   </div>
-                    <span className=" text-sm">({slugdata?.ca_services?.featured} reviews)</span>
+                  <span className=" text-sm">
+                    ({slugdata?.ca_services?.featured} reviews)
+                  </span>
                   <div className="flex items-center ">
                     {/* <p
                       dangerouslySetInnerHTML={{
@@ -121,9 +130,19 @@ const Servicesdetails = () => {
                         ),
                       }}
                     ></p> */}
-                    {slugdata?.ca_services?.description && htmlToText(slugdata?.ca_services?.description).slice(0,100)}... <br />
+                    {slugdata?.ca_services?.description &&
+                      htmlToText(slugdata?.ca_services?.description).slice(
+                        0,
+                        100
+                      )}
+                    ... <br />
                   </div>
-                   <button className=" text-blue-500" onClick={()=>settoggle(!toggle)}>Read {!toggle?"More":"Less"}</button>
+                  <button
+                    className={`text-[${primary_color}]`}
+                    onClick={() => settoggle(!toggle)}
+                  >
+                    Read {!toggle ? "More" : "Less"}
+                  </button>
                 </div>
               </div>
             </div>
@@ -175,7 +194,7 @@ const Servicesdetails = () => {
                     <strong>Our Price</strong>
                     <span>:</span>
                   </th>
-                  <td className="px-5 you_save text-[16px] text-[#2AA644]">
+                  <td className="px-5 you_save text-[16px] text-[#2aa644]">
                     ₹
                     <span id="lbllegaldevprice">
                       {slugdata?.ca_services?.price}

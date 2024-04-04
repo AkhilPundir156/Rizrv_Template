@@ -24,7 +24,7 @@ function App() {
   const [cate, setCate] = useState("");
   const [val, setVal] = useState("");
   const [mainindex, setMainindex] = useState(-1);
-  const [compdata, setcompdata] = useState();
+  const [compdata, setcompdata] = useState();  
 
   const updatecate = (value) => setCate(value);
   const updateval = (newval) => setVal(newval);
@@ -93,7 +93,7 @@ function App() {
 
           const response = await axios.get(apiUrl);
           setThemeData(response?.data?.company_data?.theme);
-          console.log("this is service page",response.data.company_data.theme);
+          // console.log("this is service page",response.data.company_data.theme);
           // console.log(Data)
         } else {
           console.error("Domain not found in the URL.");
@@ -109,14 +109,14 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar
+        {ThemeData && <Navbar
           navitems={navitems}
           updatecate={updatecate}
           updateval={updateval}
           updateindex={updateindex}
           compdata={compdata}
           ThemeData={ThemeData}
-        />
+        />}
 
         <Routes>
           <Route

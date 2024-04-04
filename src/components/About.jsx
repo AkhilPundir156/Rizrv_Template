@@ -7,7 +7,6 @@ import axios from "axios";
 const About = (props) => {
   const [Data, setData] = useState("");
   const {ThemeData} = props;
-  console.log("this is about page",ThemeData);
 
   useEffect(() => {
     const fetchData = async () => {

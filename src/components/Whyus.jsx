@@ -3,17 +3,19 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 const Whyus = (props) => {
-  const [compdata, setcompdata] = useState()
-  const {ThemeData} = props
-  console.log("this is theme",ThemeData)
+  const [compdata, setcompdata] = useState();
+  const { ThemeData } = props;
+  const primary_color = ThemeData?.ThemeData;
+  const menu_colors = ThemeData?.menu_colors;
+  // console.log("this is theme", ThemeData);
   // console.log("this is whyus page",props.props.compdata.data.company_data.theme.content_title_status)
-  
+
   useEffect(() => {
-    const fetchData = async () => { 
+    const fetchData = async () => {
       try {
         const url = window.location.hostname;
         const domainArray = url.split(".");
-        console.log(domainArray);
+        // console.log(domainArray);
         const subdomain = domainArray[0];
         // console.log(subdomain);
 
@@ -36,24 +38,22 @@ const Whyus = (props) => {
 
   return (
     <section className="pt-4">
-      <p className="serv-head text-red text-center pt-4 ">News</p>
+      <p className={`serv-head text-[${menu_colors}] text-center pt-4 `}>News</p>
       <p className="serv-title text-4xl text-center font-bold text-gray-700 pt-2 pb-8">
-        The<span className="text-red"> Service</span> That We Provide For Our
+        The<span className={`text-[${menu_colors}]`}> Service</span> That We Provide For Our
         Ultimate Clients
       </p>
 
       <div className="us-container w-4/5 flex flex-wrap m-auto ">
-
-        {
-          compdata?.data?.news.map((item,index)=>{
-            // <div>hey</div>
-            if (index%2) {
-              
-             return  <div className="us-card m-auto  relative">
-                <div className="us-left"></div>
-                <div className="us-right"></div>
+        {compdata?.data?.news.map((item, index) => {
+          // <div>hey</div>
+          if (index % 2) {
+            return (
+              <div className="us-card m-auto  relative">
+                {/* <div className="us-left"></div> */}
+                {/* <div className="us-right"></div> */}
                 {/* <div className="m-auto w-fit pt-5"> */}
-                  {/* <i className="text-5xl  text-white ">
+                {/* <i className="text-5xl  text-white ">
                     {" "}
                     <GrCertificate />{" "}
                   </i> */}
@@ -61,35 +61,32 @@ const Whyus = (props) => {
                 {/* <div className="us-title text-center text-3xl text-white font-semibold">
                   Super easy {index}
                 </div> */}
-                <p className="text-center p-10 pt-4">
-                  {item.title}
-                </p>
+                <p className="text-center p-10 pt-4">{item.title}</p>
                 <img src={item.image} className="h-fit" alt="" />
               </div>
-            }
-            else{
-             return  <div className="us-card-main  m-auto relative">
-              {/* <div className="us-left-mid"></div>
+            );
+          } else {
+            return (
+              <div className="us-card-main  m-auto relative">
+                {/* <div className="us-left-mid"></div>
               <div className="us-right-mid"></div> */}
-              {/* <div className="m-auto w-fit pt-5">
+                {/* <div className="m-auto w-fit pt-5">
                 <i className="text-5xl  ">
                   {" "}
                   <GrCertificate />{" "}
                 </i>
               </div> */}
-              {/* <div className="us-title text-center text-3xl  font-semibold">
+                {/* <div className="us-title text-center text-3xl  font-semibold">
                 Super easy
               </div> */}
-              <p className="text-center p-10 pt-4 text-gray-700">
-                {item.title}
-              </p>
-              <img src={item.image} alt="" />
-            </div>
-
-            }
-          })
-        }
-
+                <p className="text-center p-10 pt-4 text-gray-700">
+                  {item.title}
+                </p>
+                <img src={item.image} alt="" />
+              </div>
+            );
+          }
+        })}
 
         {/* <div className="us-card   m-auto  relative">
           <div className="us-left"></div>

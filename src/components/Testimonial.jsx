@@ -8,7 +8,9 @@ import axios from "axios";
 const Testimonial = (props) => {
   const sliderRef = useRef(null); // Reference to the Slider component
   const [Data, setData] = useState("");
-  const {ThemeData} = props
+  const ThemeData = props?.ThemeData;
+  const primary_color = ThemeData?.primary_color;
+  const menu_colors = ThemeData?.menu_colors;
   // console.log("this is theme",ThemeData)
 
   useEffect(() => {
@@ -39,10 +41,9 @@ const Testimonial = (props) => {
   }, []);
 
   const CustomPrevArrow = () => {
-    console.log("previous button clicked ")
     return (
       <button
-        className="custom-prev-arrow"
+        className={`custom-prev-arrow bg-[${primary_color}]`}
         onClick={() => sliderRef.current.slickPrev()}
       >
         <span>&#10094;</span> Previous
@@ -51,10 +52,9 @@ const Testimonial = (props) => {
   };
 
   const CustomNextArrow = () => {
-    console.log("next button clicked ");
     return (
       <button
-        className="custom-next-arrow"
+        className={`custom-next-arrow bg-[${primary_color}]`}
         onClick={() => sliderRef.current.slickNext()}
       >
         Next <span>&#10095;</span>
@@ -82,7 +82,7 @@ const Testimonial = (props) => {
         </div>
         <div className="test-head">
           <p className="serv-title text-4xl text-center font-bold text-gray-700 pt-6 pb-3">
-            See What Our Client's Say <span className="text-red"> Say </span>
+            See What Our Client's Say <span className={`text-[${menu_colors}]`}> Say </span>
             About Our Work
           </p>
           <p className="serv-title text-center text-lg text-gray-700 ">

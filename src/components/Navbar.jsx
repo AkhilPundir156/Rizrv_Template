@@ -10,8 +10,14 @@ function Navbar(props) {
   const updateval = props.updateval;
   const updateindex = props.updateindex;
   const compdata = props?.compdata?.data?.company_data?.configs;
-  const {ThemeData} = props
-  // console.log("This is navbar",ThemeData);
+  const ThemeData = props?.ThemeData
+  const primary_color = ThemeData?.primary_color;
+  const menu_colors = ThemeData?.menu_colors;
+
+  console.log("This is navbar menu",menu_colors)
+  console.log("This is navbar primary",primary_color)
+
+  // console.log("This is navbar",ThemeData.primary_color);
   // console.log(compdata);
   // console.log(updateval)
   // console.log(mainitems);
@@ -24,14 +30,14 @@ function Navbar(props) {
 
   return (
     <>
-      <section className="sticky top-0 z-10 bg-white w-full">
+     <section className="sticky top-0 z-10 bg-white w-full"> 
         {/* <div className="mt-0 -mb-2 text-xl font-semibold">
           <marquee  behavior="smooth" direction="">Hello i am akhil</marquee>
         </div> */}
 
         {/* First line that conatin information and some links  */}
         <div className="nav-first-line flex justify-between  items-center ">
-          <div className="nav-details flex px-6 flex-grow pt-1 bg-current  text-white h-8 relative">
+          <div className={`nav-details flex px-6 flex-grow pt-1 bg-[${primary_color}] text-white h-8 relative`}>
             <div className="flex px-3 pl-0 ">
               <div className="my-1 px-1 pl-0">
                 <i className="">
@@ -45,15 +51,15 @@ function Navbar(props) {
               <div className="my-1 px-1">
                 <i>
                   {" "}
-                  <HiPhone />
+                  <HiPhone /> 
                 </i>
               </div>
               <p>+91-{compdata?.company_phone}</p>
             </div>
-            <div className=" trianglesh absolute h-8 w-5 bg-white right-0 -mt-1 "></div>
+            <div className={`trianglesh absolute h-8 w-5 bg-white right-0 -mt-1 border-t-[2rem] border-r-[2rem] border-solid   border-t-[${primary_color}]  border-r-transparent`}></div>
           </div>
           <div className=" text-red-800 font-bold">
-            <div className="flex px-10 pr-0 h-fit items-center nav-first-details">
+            <div className={`flex px-10 pr-0 h-fit items-center nav-first-details text-[${menu_colors}]`}>
               <Link to={"/"}>
                 <p className="px-2 border-r-black border-r">Home</p>
               </Link>
@@ -67,7 +73,7 @@ function Navbar(props) {
                 <Link
                   to={"/login"}
                   type="button"
-                  class=" bg-current text-white  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 me-2  mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
+                  class={` bg-[${primary_color}] text-white  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 me-2  mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 `}
                 >
                   SignIn
                 </Link>
@@ -76,7 +82,7 @@ function Navbar(props) {
                 <Link
                   to={"/signup"}
                   type="button"
-                  class="text-white bg-current hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  class={`text-white bg-[${primary_color}] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800`}
                 >
                   SignUp
                 </Link>
@@ -91,7 +97,7 @@ function Navbar(props) {
               src={compdata?.web_logo}
               className=" mx-auto h-8"
               alt=""
-              srcset=""
+              srcset="" 
             />
           </div>
         </div>
@@ -103,7 +109,7 @@ function Navbar(props) {
             <div>
               <img src={img} alt="" className="h-8" />
             </div>
-            <div className="text-2xl " onClick={() => setIsOpen(!isOpen)}>
+            <div className="text-2xl " onClick={() => setIsOpen(!isOpen)}>   
               <HiMenu />{" "}
             </div>
           </nav>
@@ -125,7 +131,7 @@ function Navbar(props) {
                       <IoIosArrowDown className="mx-1 pb-1  text-lg" />
                     </div>
                     {isdropped === item.name && (
-                      <div className="h-[440px] bg-[#e4f6ff]  overflow-scroll text-[#00354d] m-auto">
+                      <div className={`h-[440px] bg-[#e4f6ff]  overflow-scroll text-[#e7230d] m-auto`}>
                         {item.company_service.map((items, idx) => (
                           <Link
                             to={`/serv-details/${items.slug}`}
@@ -198,31 +204,31 @@ function Navbar(props) {
 
         {/* for device */}
 
-        <nav className="third-line w-full h-9 border-black border-b-4 mt-6 ">
+        <nav className={`third-line w-full h-9 border-[${menu_colors}] border-b-4 mt-6`}>
           <div className="third-line-item flex justify-center">
             {items.map((item, idx) => (
               <div
                 className="third-line-items flex relative startup px-4 cursor-pointer"
                 onClick={() => {
                   updatecate(item.slug);
-                  window.scroll({ top: 1200, behavior: "smooth" });
+                  window.scroll({ top: 1280, behavior: "smooth" });
                 }}
               >
                 <Link to="/">
-                  <div className=" text-current font-bold pr-2">
+                  <div className={`text-[${menu_colors}] font-bold pr-2`}>
                     {item.name}
-                  </div>
+                  </div> 
                 </Link>
-                <i className="absolute p-2 pl-16 right-0 text-xs ">
+                <i className={`absolute p-2  right-0 text-xs text-[${menu_colors}] `}>
                   {" "}
-                  <IoIosArrowDown />{" "}
+                  <IoIosArrowDown />{" "} 
                 </i>
 
                 {/* To display all the items of the startup */}
 
                 {item.name !== "ISO" && item.name !== "Banking" && (
-                  <div className=" z-10 nav-items-startup  bg-slate-400   w-full fixed left-0 top-[7.5rem] border-t-2 mt-1.5 h-fit ">
-                    <div className="  pl-20 bg-white pb-3 border-gray-700 border-b-2 nav-checks">
+                  <div className={`z-10 nav-items-startup  bg-slate-400 w-full fixed left-0 top-[7.5rem] border-t-2 mt-1.5 h-fit text-[${menu_colors}] `}>
+                    <div className={`pl-20 bg-white pb-3 border-[${menu_colors}] border-b-2 nav-checks`}>
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pt-3">
                         {item.company_service.map((items, index) => (
                           <div key={index} className=" pt-1 ">
